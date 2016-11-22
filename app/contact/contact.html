@@ -1,0 +1,93 @@
+
+<h3>{{ contact.title }}</h3>
+<hr />
+<p><i>Compléter le formulaire pour ajouter un personnage</i></p>
+<div class="row">
+    <form ng-submit="contact.submitForm(userForm.$valid)" name="userForm" class="col s8" novalidate>
+        <div class="row">
+            <div class="input-field col s6">
+                <input ng-model="contact.pseudo" ng-required="true" id="pseudo" name="pseudo" type="text" class="validate">
+                <label required for="pseudo">Pseudo</label>
+            </div>
+            <div class="input-field col s6">
+              <input ng-model="contact.photo" ng-required="true" id="photo" name="photo" type="url" class="validate">
+              <label for="photo">Photo</label>
+            </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input ng-model="contact.naissance" ng-required="true" id="naissance" name="naissance" type="text" class="validate">
+            <label for="naissance">Date de naissance</label>
+          </div>
+          <div class="input-field col s4 offset-s1">
+            <div class="switch">
+             <label>
+               Femme
+               <input ng-model="contact.sexe" type="checkbox">
+               <span class="lever"></span>
+               Homme
+             </label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input ng-model="contact.pays" ng-required="true" id="pays" name="pays" type="text" class="validate">
+            <label for="pays">Pays</label>
+          </div>
+            <div class="input-field col s3">
+              <input ng-model="contact.coord.lat" ng-required="true" id="coordLat" name="coordLat" type="text" class="validate">
+              <label for="coordLat">Latitude</label>
+            </div>
+            <div class="input-field col s3">
+              <input ng-model="contact.coord.lng" ng-required="true" id="coordLng" name="coordLng" type="text" class="validate">
+              <label for="coordLng">Longitude</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+              <input ng-model="contact.activite" ng-required="true" id="activite" name="activite" type="text" class="validate">
+              <label for="activite">Activité</label>
+            </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12" id="checkSaison">
+            <p>
+              Saison d'apparition :
+            </p>
+            <div class="row">
+              <input type="checkbox" ng-model="checkSaison.1" value="1"  class="filled-in" id="filled-in-box1"  />
+              <label for="filled-in-box1">1</label>
+              <input type="checkbox" ng-model="checkSaison.2" value="2" class="filled-in" id="filled-in-box2"  />
+              <label for="filled-in-box2">2</label>
+              <input type="checkbox" ng-model="checkSaison.3" value="3" class="filled-in" id="filled-in-box3"  />
+              <label for="filled-in-box3">3</label>
+              <input type="checkbox" ng-model="checkSaison.4" value="4" class="filled-in" id="filled-in-box4"  />
+              <label for="filled-in-box4">4</label>
+              <input type="checkbox" ng-model="checkSaison.5" value="5" class="filled-in" id="filled-in-box5"  />
+              <label for="filled-in-box5">5</label>
+              <input type="checkbox" ng-model="checkSaison.6" value="6" class="filled-in" id="filled-in-box6"  />
+              <label for="filled-in-box6">6</label>
+              <input type="checkbox" ng-model="checkSaison.7" value="7" class="filled-in" id="filled-in-box7"  />
+              <label for="filled-in-box7">7</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="resume" ng-model="contact.resume" class="materialize-textarea"></textarea>
+          <label for="resume">Résumé</label>
+        </div>
+      </div>
+    </form>
+  </div>
+
+        <div class="row">
+            <button ng-disabled="userForm.$invalid" class="waves-effect waves-light btn" type="submit">
+                <i class="material-icons">send</i>Ajouter le personnage
+            </button>
+        </div>
+    </form>
+</div>

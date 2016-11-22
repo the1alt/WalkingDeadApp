@@ -1,0 +1,24 @@
+{
+  "name": "walkingdeadapp",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "the1alt <thibaut.faurel@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "bowerapp/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "^1.1.1",
+    "angular-route": "^1.5.8",
+    "angular-loading-bar": "^0.9.0",
+    "materialize": "^0.97.8"
+  }
+}
