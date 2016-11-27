@@ -16,18 +16,15 @@
         </div>
         <div class="row">
           <div class="input-field col s6">
-            <input ng-model="contact.naissance" ng-required="true" id="naissance" name="naissance" type="text" class="validate">
+            <input dateng-model="contact.naissance" ng-required="true" id="naissance" name="naissance" type="date" class="datepicker">
             <label for="naissance">Date de naissance</label>
           </div>
           <div class="input-field col s4 offset-s1">
-            <div class="switch">
-             <label>
-               Femme
-               <input ng-model="contact.sexe" type="checkbox">
-               <span class="lever"></span>
-               Homme
-             </label>
-            </div>
+             <select ng-model="contact.sexe" ng-required="true" id="sexe" name="sexe" >
+               <option value="" disabled selected>Quel est le sexe ?</option>
+               <option ng-value="true">Homme</option>
+               <option ng-value="false">Femme</option>
+             </select>
           </div>
         </div>
         <div class="row">
@@ -36,11 +33,11 @@
             <label for="pays">Pays</label>
           </div>
             <div class="input-field col s3">
-              <input ng-model="contact.coord.lat" ng-required="true" id="coordLat" name="coordLat" type="text" class="validate">
+              <input ng-model="contact.coord.lat" ng-required="true" id="coordLat" name="coordLat" type="number" class="validate">
               <label for="coordLat">Latitude</label>
             </div>
             <div class="input-field col s3">
-              <input ng-model="contact.coord.lng" ng-required="true" id="coordLng" name="coordLng" type="text" class="validate">
+              <input ng-model="contact.coord.lng" ng-required="true" id="coordLng" name="coordLng" type="number" class="validate">
               <label for="coordLng">Longitude</label>
             </div>
         </div>
@@ -75,16 +72,26 @@
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <textarea id="resume" ng-model="contact.resume" class="materialize-textarea"></textarea>
+            <textarea ng-required="true" id="resume" ng-model="contact.resume" class="materialize-textarea"></textarea>
             <label for="resume">Résumé</label>
           </div>
         </div>
-  
+
 
         <div class="row">
-            <button ng-disabled="userForm.$invalid" class="waves-effect waves-light btn" type="submit">
+            <button ng-disabled="userForm.$invalid" class="waves-effect waves-light btn" type="submit" ng-click="clickTest">
                 <i class="material-icons">send</i>Ajouter le personnage
             </button>
         </div>
     </form>
+
 </div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('select').material_select();
+    $('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+  });
+</script>

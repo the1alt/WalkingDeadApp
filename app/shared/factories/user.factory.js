@@ -13,13 +13,15 @@
     /**
      * Handler User
      */
-    function UserFcty($log, $q, $http) {
+    function UserFcty($log, $q, $http, contact) {
+
 
         var obj = {
             all: getAll
         };
 
         return obj;
+
 
         /**
          * get All User
@@ -33,6 +35,10 @@
                 }).error(deferred.reject);
             return deferred.promise; //return a promise with $q library (not exist in ES5)
         }
+
+
+
+
 
 
     }
