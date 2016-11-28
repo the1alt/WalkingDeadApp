@@ -1,34 +1,44 @@
 <div class="container">
   <div class="row">
-    <div class="col s12 m12">
+    <div class="col s3 m3">
       <form action="#">
-    <p>
-      <input name="group1" ng-value="true" ng-model="main.sexeOption" type="radio" id="test1" />
-      <label for="test1">Homme</label>
-    </p>
-    <p>
-      <input name="group1" ng-model="main.sexeOption" ng-value="false" type="radio" id="test2" />
-      <label for="test2">Femme</label>
-    </p>
-    <p>
-      <input class="with-gap" ng-model="main.sexeOption" ng-value="null" name="group1" type="radio" id="test3"  />
-      <label for="test3">tous</label>
-    </p>
-  </form>
-
+        <p>
+          <input name="group1" ng-value="true" ng-model="main.sexeOption" type="radio" id="test1" />
+          <label for="test1">Homme</label>
+        </p>
+        <p>
+          <input name="group1" ng-model="main.sexeOption" ng-value="false" type="radio" id="test2" />
+          <label for="test2">Femme</label>
+        </p>
+        <p>
+          <input class="with-gap" ng-model="main.sexeOption" ng-value="null" name="group1" type="radio" id="test3"  />
+          <label for="test3">tous</label>
+        </p>
+      </form>
+    </div>
+    <div class="input-field col s4">
+        <label for="searchText">Rechercher avec n'importe quel mot</label>
+        <input type="text" ng-model="main.searchText" id="searchText">
     </div>
   </div>
   <div class="row">
     <div class="col s12 m12" >
       <!-- | triSexe:main.sexeOption  -->
-      <div class="card horizontal" ng-repeat="user in main.users | triSexe:main.sexeOption  track by $index">
+      <div class="card horizontal" ng-repeat="user in main.users | triSexe:main.sexeOption | searchText:main.searchText track by $index">
+
         <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" ng-src="{{ user.photo }}" alt="{{ user.pseudo }}" />
+          <img class="activator" ng-src="{{ user.photo }}" alt="{{ user.pseudo }}" width="200px" />
         </div>
+
         <div class="card-stacked">
           <div class="card-content">
+
             <span class="card-title activator grey-text text-darken-4" >#{{ user.id }} {{ user.pseudo }}<i class="material-icons right">more_vert</i></span>
+
             <p>{{ user.sexe ? 'Homme' : 'Femme'}} - {{ user.naissance }} - {{ user.activite }} - {{ user.pays }}</p>
+
+            <p ng-if:"user.naissance|month"><i class="material-icons">cake</i> C'est son anniversaire! </p>
+
             <a class="btn-floating btn-large waves-effect waves-light red" id="btn-del" ng-click="main.deleteUser($index)"><i class="material-icons">delete</i></a>
           </div>
         </div>

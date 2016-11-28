@@ -7,7 +7,6 @@
 
     angular.module('app').factory("dataService", function() {
       var users = [];
-      console.log(users);
         return {
           users: users
         };

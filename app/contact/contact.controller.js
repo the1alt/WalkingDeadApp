@@ -17,7 +17,6 @@
         vm.title = "Page d'ajout de personnage";
         vm.checkSaison={};
         vm.dataService = dataService;
-        console.log(dataService);
 
 
 
@@ -73,7 +72,7 @@
               // vm.resume="";
               // vm.saison=[];
 
-              // vm.dataService.users = vm.newCharacter;
+              vm.dataService.users.push(vm.newCharacter);
               console.log('dataservice ajoutctrl', vm.dataService);
             }
 
