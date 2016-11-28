@@ -33,7 +33,7 @@
     }
 
 
-    angular.module('app')  .filter('triSexe', function(){
+    angular.module('app').filter('triSexe', function(){
         return function(sexeFilter, sexeOption){
           var el = [];
           console.log(sexeOption);
@@ -52,8 +52,9 @@
               el = sexeFilter;
             }
             console.log(el);
-            return el;
           });
+
+          return el;
         };
     });
 

@@ -1,13 +1,13 @@
 /**
  * Another Contact Controller
  */
-(function($rootScope) {
+(function() {
 
     'use strict';
 
     angular.module('app').controller('contactCtrl',  contactCtrl);
 
-      contactCtrl.$inject = ['dataService'];
+      contactCtrl.$inject = ['$window','dataService'];
 
       function contactCtrl($window, dataService) {
 
@@ -17,6 +17,7 @@
         vm.title = "Page d'ajout de personnage";
         vm.checkSaison={};
         vm.dataService = dataService;
+        console.log(dataService);
 
 
 
@@ -62,18 +63,18 @@
               };
 
               // restore values
-              vm.pseudo="";
-              vm.sexe=null;
-              vm.photo="";
-              vm.activite="";
-              vm.naissance=null;
-              vm.coord={};
-              vm.pays="";
-              vm.resume="";
-              vm.saison=[];
+              // vm.pseudo="";
+              // vm.sexe=null;
+              // vm.photo="";
+              // vm.activite="";
+              // vm.naissance=null;
+              // vm.coord={};
+              // vm.pays="";
+              // vm.resume="";
+              // vm.saison=[];
 
-              vm.dataService.user = vm.newCharacter;
-              console.log('dataservice ajoutctrl', vm.dataService.user);
+              // vm.dataService.users = vm.newCharacter;
+              console.log('dataservice ajoutctrl', vm.dataService);
             }
 
 

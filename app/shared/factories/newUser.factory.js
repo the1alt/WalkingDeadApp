@@ -5,8 +5,15 @@
 
     'use strict';
 
-    angular.module('app').service("dataService", function() {
-        this.user = [];
+    angular.module('app').factory("dataService", function() {
+      var users = [];
+      console.log(users);
+        return {
+          users: users
+        };
+
+
+
       });
 
 

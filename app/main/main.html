@@ -21,7 +21,7 @@
   <div class="row">
     <div class="col s12 m12" >
       <!-- | triSexe:main.sexeOption  -->
-      <div class="card horizontal" ng-repeat="user in main.users track by $index">
+      <div class="card horizontal" ng-repeat="user in main.users | triSexe:main.sexeOption  track by $index">
         <div class="card-image waves-effect waves-block waves-light">
           <img class="activator" ng-src="{{ user.photo }}" alt="{{ user.pseudo }}" />
         </div>
