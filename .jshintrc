@@ -55,6 +55,8 @@
 
     "globals": {
         "angular": false,
-        "$": false
+        "$": false,
+        "moment":false,
+        "materialize":false,
     }
 }

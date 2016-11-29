@@ -35,10 +35,17 @@
             vm.myDate.getMonth() + 2,
             vm.myDate.getDate());
 
-        vm.onlyWeekendsPredicate = function(date) {
-            var day = date.getDay();
-            return day === 0 || day === 6;
-          };
+        vm.age = function(input){
+          return moment().diff(moment(input, 'DD-MM-YYYY'), 'years');
+        };
+
+        // vm.onlyWeekendsPredicate = function(date) {
+        //     var day = date.getDay();
+        //     return day === 0 || day === 6;
+        //   };
+
+
+          vm.ageRange = 10;
 
         //
         // if( vm.dataService.user.length>0 ){
