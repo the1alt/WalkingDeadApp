@@ -18,6 +18,11 @@
     -ms-animation: bounceOut 1s;
     animation: bounceOut 1s;
   }
+  .card {
+      display: inline-block;
+      overflow: visible;
+      width:50%;
+  }
 
 
 /**

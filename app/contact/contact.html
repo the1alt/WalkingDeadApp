@@ -3,7 +3,7 @@
 <hr />
 <p><i>Compléter le formulaire pour ajouter un personnage</i></p>
 <div class="row">
-    <form ng-submit="contact.submitForm(userForm.$valid)" name="userForm" class="col s8" novalidate>
+    <form ng-submit="contact.ajout(userForm.$valid)" name="userForm" class="col s8" novalidate>
         <div class="row">
             <div class="input-field col s6">
                 <input ng-model="contact.pseudo" ng-required="true" id="pseudo" name="pseudo" type="text" class="validate">
@@ -16,7 +16,7 @@
         </div>
         <div class="row">
           <div class="input-field col s6">
-            <input dateng-model="contact.naissance" ng-required="true" id="naissance" name="naissance" type="date" class="datepicker">
+            <input ng-model="contact.naissance" ng-required="true" id="naissance" name="naissance" type="text" class="datepicker" materialize-date-picker readonly>
             <label for="naissance">Date de naissance</label>
           </div>
           <div class="input-field col s4 offset-s1">

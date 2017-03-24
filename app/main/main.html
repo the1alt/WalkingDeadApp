@@ -32,16 +32,15 @@
           </form>
       </div>
   </div>
-  <div class="row">
-    <div class="col s12 m12" id="users" >
-      <div class="col s6 m6 users" ng-repeat="user in main.users | triSexe:main.sexeOption | searchText:main.searchText |ageMax:main.ageRange track by user.id">
 
-        <div ng-class="{'shake':(user.naissance|month)}" class="card horizontal animated" >
+  <div class="row">
+    <div class="col s12 m12" id="users"  masonry='{ "transitionDuration" : "0.4s" , "itemSelector" : ".horizontal"}'>
+
+        <div masonry-tile ng-class="{'shake':(user.naissance|month)}" class="card horizontal animated"  ng-repeat="user in main.users | triSexe:main.sexeOption | searchText:main.searchText |ageMax:main.ageRange track by user.id" >
 
           <div class="card-image waves-effect waves-block waves-light">
             <img class="activator" ng-src="{{ user.photo }}" alt="{{ user.pseudo }}" width="200px" />
           </div>
-
           <div class="card-stacked">
             <div class="card-content">
 
@@ -56,7 +55,7 @@
           </div>
           <div class="card-reveal">
             <span class="card-title grey-text text-darken-4" >#{{ user.id }} {{ user.pseudo }}<i class="material-icons right">close</i></span>
-            <p>{{ user.sexe }} - {{ user.naissance }} - {{ user.activite }} - {{ user.pays }}</p>
+            <p>{{ user.sexe ? 'Homme' : 'Femme'}} - {{ user.naissance }} - {{ user.activite }} - {{ user.pays }}</p>
             <p>
               Saisons : <span ng-repeat="saison in user.saisons">{{saison}}.</span><br/>
               {{ user.resume }}
@@ -64,8 +63,6 @@
             </p>
           </div>
         </div>
-      </div>
-
     </div>
   </div>
   <div class="row">

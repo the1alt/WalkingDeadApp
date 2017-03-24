@@ -29,7 +29,6 @@
                 var long = 	2.54836031;
                 newValue.forEach(function(element) {
 
-                    console.log(element);
                     var contentString = '<div id="content">' +
                         element.pseudo+ " - " + element.activite +
                         '</div>';

@@ -13,7 +13,7 @@
      * Cela signifie que la Factory est chargé avant que la page se charge
      */
 
-    function mainCtrl(users, $scope, $filter, dataService) {
+    function mainCtrl(users, $scope, $filter, dataService, UserFcty) {
 
 
         var vm = this;
@@ -62,7 +62,9 @@
 
         vm.deleteUser = function(id){
           Materialize.toast(vm.users[id].pseudo + " s'est fait bouffé par un zombie", 4000);
-          vm.users.splice(id,1);
+          UserFcty.remove(id+1).then(function() {
+              vm.users.splice(id,1);
+          });
         };
 
 

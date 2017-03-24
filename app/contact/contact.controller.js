@@ -7,21 +7,20 @@
 
     angular.module('app').controller('contactCtrl',  contactCtrl);
 
-      contactCtrl.$inject = ['$window','dataService'];
+      contactCtrl.$inject = ['$window','UserFcty' ];
 
-      function contactCtrl($window, dataService) {
+      function contactCtrl($window, UserFcty) {
 
 
         var vm = this;
-        vm.submitForm = submitForm;
         vm.title = "Page d'ajout de personnage";
         vm.checkSaison={};
-        vm.dataService = dataService;
+        vm.ajout = ajout;
 
 
 
         // function to submit the form after all validation has occurred
-        function submitForm(isValid) {
+        function ajout(isValid) {
 
             // check to make sure the form is completely valid
             if (isValid) {
@@ -44,6 +43,7 @@
                 vm.sexe = false;
               }
 
+              vm.naissance = moment(vm.naissance).format('DD/MM/YYYY');
               // Create new Character
               vm.newCharacter={
                 "id": 0,
@@ -61,23 +61,27 @@
                 "saisons": vm.saison
               };
 
-              // restore values
-              // vm.pseudo="";
-              // vm.sexe=null;
-              // vm.photo="";
-              // vm.activite="";
-              // vm.naissance=null;
-              // vm.coord={};
-              // vm.pays="";
-              // vm.resume="";
-              // vm.saison=[];
 
-              vm.dataService.users.push(vm.newCharacter);
-              console.log('dataservice ajoutctrl', vm.dataService);
+
+              UserFcty.add(vm.newCharacter).then(function(){
+                // restore values
+                vm.pseudo="";
+                vm.sexe=null;
+                vm.photo="";
+                vm.activite="";
+                vm.naissance=null;
+                vm.coord={};
+                vm.pays="";
+                vm.resume="";
+                vm.saison=[];
+              });
+            }
+            else{
+              console.log("invalid");
             }
 
 
-
+            Materialize.toast("le personnage a été ajouté à la liste des personnages", 4000);
 
         }//END SUBMIT FUNCTION
 

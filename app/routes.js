@@ -9,8 +9,9 @@
      * All Routing here...
      * Each Route can resolve some datas before send in controller
      */
-    angular.module('app', ['ngRoute', 'ngAnimate']).config(function($routeProvider) {
-        $routeProvider
+    angular.module('app', ['ngRoute', 'ngAnimate'])
+    .config(function($routeProvider) {
+      $routeProvider
             .when('/', {
                 templateUrl: 'app/main/main.html',
                 controller: 'mainCtrl',
@@ -24,8 +25,14 @@
             .when('/contact', {
                 templateUrl: 'app/contact/contact.html',
                 controller: 'contactCtrl',
-                controllerAs: 'contact'
-            });
+                controllerAs: 'contact',
+                resolve: {
+                  users: function(UserFcty) {
+                        return UserFcty.all();
+                      }
+                }
+            })
+            .otherwise({redirectTo: '/'});
     });
 
 

@@ -67,13 +67,12 @@
             else{
 
               angular.forEach(a, function(b, c){
-                if(b === textOption){
+                if(typeof b === 'string' && c !== 'resume' && b.indexOf(textOption) > -1 && el.indexOf(a) === -1){
                   el.push(a);
                 }
               });
             }
           });
-          console.log();
           return el;
         };
     });
