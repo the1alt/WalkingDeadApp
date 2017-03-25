@@ -13,7 +13,9 @@
         .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
             cfpLoadingBarProvider.spinnerTemplate = '<div><span class="fa fa-spinner">Loading...</div>';
             cfpLoadingBarProvider.parentSelector = '#loading-bar-container';
-        }]);
+        }, '$locationProvider', function($locationProvider) {
+  $locationProvider.html5Mode(true);
+}]);
 
 
 }());
