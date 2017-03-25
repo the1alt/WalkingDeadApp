@@ -9,7 +9,7 @@
      * All Routing here...
      * Each Route can resolve some datas before send in controller
      */
-    var walkingapp = angular.module('walkingapp', ['ngRoute', 'ngAnimate'])
+    angular.module('app', ['ngRoute', 'ngAnimate'])
     .config(function($routeProvider) {
       $routeProvider
             .when('/', {
