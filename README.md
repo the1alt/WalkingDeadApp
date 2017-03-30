@@ -1,6 +1,6 @@
 ### Angular Project Seed
 
-For revise or begin, this is a stupid simple Angular Architecture Project 
+For revise or begin, this is a stupid simple Angular Architecture Project
 to handler Angular StyleGuide & Components Philophy
 
 Follow Angular StyleGuide
@@ -29,6 +29,6 @@ clone that, then:
 
 ```
 npm install && bower install
-gulp 
+json-server --watch data/characteres.json
+gulp
 ```
-

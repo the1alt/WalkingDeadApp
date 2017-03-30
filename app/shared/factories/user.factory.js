@@ -31,7 +31,7 @@
          */
         function getAll() {
             var deferred = $q.defer();
-            $http.get('../../data/characteres.json')
+            $http.get('http://localhost:3000/data')
                 .success(function(data) {
                     deferred.resolve(data);
                     $log.info('API chargée');
@@ -42,7 +42,7 @@
         function addOne(obj) {
                     var deferred = $q.defer();
 
-                    $http.post('../../data/characteres.json', obj)
+                    $http.post('http://localhost:3000/data/', obj)
                         .success(function (data) {
                             deferred.resolve(data);
                         }).error(deferred.reject);
@@ -52,7 +52,7 @@
         function removeOne(id) {
             var deferred = $q.defer();
             console.log(id);
-            $http.delete("../../data/characteres.json" + id)
+            $http.delete("http://localhost:3000/data/" + id)
                 .success(function (data) {
                     deferred.resolve(data);
                 }).error(deferred.reject);
